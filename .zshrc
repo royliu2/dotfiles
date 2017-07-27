@@ -2,7 +2,7 @@
 # zmodload zsh/zprof
 
 # history
-SAVEHIST=100000
+#SAVEHIST=100000
 
 # vim bindings
 bindkey -v
