@@ -19,6 +19,52 @@ colorscheme molotov
 let mapleader=","
 " }}}
 
+" Just Roy Things ------------------------------------------------------
+" Textmate style indentation
+vmap <leader>[ <gv
+vmap <leader>] >gv
+nmap <leader>[ <<
+nmap <leader>] >>
+
+" switch between current and last buffer
+nmap <leader>. <c-^>
+
+" Save with ,, {{{
+nmap <leader>, :w<cr>
+" }}}
+
+map <leader>p :bp<CR>
+map <leader>n :bn<CR>
+
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+nnoremap <silent> ^ g^
+nnoremap <silent> $ g$
+
+" close NERDTree after a file is opened
+let g:NERDTreeQuitOnOpen=0
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
+" remove some files by extension
+let NERDTreeIgnore = ['\.js.map$']
+" Toggle NERDTree
+nmap <silent> <leader>k :NERDTreeToggle<cr>
+" expand to the path of the file in the current buffer
+nmap <silent> <leader>y :NERDTreeFind<cr>
+
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+
+" wipout buffer
+nmap <silent> <leader>b :bw<cr>
+
+" delete buffer
+nmap <silent> <leader>d :bp<cr>:bd #<cr>
+
+" remap semicolon to colon
+map ; :
+
+" ----------------------------------------------------------------------
+
 " Local directories {{{
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
@@ -31,9 +77,10 @@ set backspace=indent,eol,start
 set cursorline " Highlight current line
 set diffopt=filler " Add vertical spaces to keep right and left aligned
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
-set encoding=utf-8 nobomb " BOM often causes trouble
+set encoding=utf-8
 set esckeys " Allow cursor keys in insert mode
 set expandtab " Expand tabs to spaces
+set smarttab
 set foldcolumn=0 " Column to show folds
 set foldenable " Enable folding
 set foldlevel=0 " Close all folds by default
@@ -129,6 +176,11 @@ augroup general_config
   nnoremap <C-y> 3<C-y>
   " }}}
 
+  " Resize panes on window resize
+  autocmd VimResized * exe 'normal! \<c-w>='
+  autocmd BufWritePost .vimrc source %
+  autocmd BufWritePost .vimrc.local source %
+
   " Faster split resizing (+,-) {{{
   if bufwinnr(1)
     map + <C-W>+
@@ -195,8 +247,8 @@ augroup general_config
   " }}}
 
   " Paste toggle (,p) {{{
-  set pastetoggle=<leader>p
-  map <leader>p :set invpaste paste?<CR>
+  " set pastetoggle=<leader>p
+  " map <leader>p :set invpaste paste?<CR>
   " }}}
 
   " Yank from cursor to end of line {{{
@@ -264,7 +316,6 @@ augroup buffer_control
   " }}}
 
   " Buffer navigation (,,) (gb) (gB) (,ls) {{{
-  map <Leader>, <C-^>
   map <Leader>ls :buffers<CR>
   map gb :bnext<CR>
   map gB :bprev<CR>
@@ -534,6 +585,11 @@ augroup airline_config
   let g:airline#extensions#tabline#buffer_nr_show = 1
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#fnamecollapse = 0
+  let g:airline_left_sep=''
+  let g:airline_right_sep=''
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
   let g:airline#extensions#tabline#fnamemod = ':t'
 augroup END
 " }}}
@@ -541,6 +597,10 @@ augroup END
 " CtrlP.vim {{{
 augroup ctrlp_config
   autocmd!
+  nmap <silent> <leader>T :CtrlPBuffer<cr>
+  let g:ctrlp_map='<leader>t'
+  let g:ctrlp_dotfiles=1
+  let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_clear_cache_on_exit = 0 " Do not clear filenames cache, to improve CtrlP startup
   let g:ctrlp_lazy_update = 350 " Set delay to prevent extra search
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' } " Use python fuzzy matcher for better performance
@@ -606,6 +666,12 @@ augroup syntastic_config
 augroup END
 " }}}
 
+" Abbreviations
+abbr funciton function
+abbr teh the
+abbr tempalte template
+abbr fitler filter
+
 
 " Plugins -------------------------------------------------------------
 
@@ -614,6 +680,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ap/vim-css-color'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'guns/vim-clojure-static'
 Plug 'joker1007/vim-ruby-heredoc-syntax'
@@ -629,6 +696,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'oplatek/Conque-Shell'
 Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
+Plug 'benmills/vimux'
+Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'slim-template/vim-slim', { 'for': 'slim' }

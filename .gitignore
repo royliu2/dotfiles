@@ -7,6 +7,9 @@
 # git credential file
 .gitconfig.local
 
+# ssh config
+.ssh.config
+
 
 # no thx
 node_modules
