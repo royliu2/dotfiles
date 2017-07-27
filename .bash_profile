@@ -131,3 +131,12 @@ shopt -s dirspell 2> /dev/null
 
 # Turn on recursive globbing (enables ** to recurse all directories)
 shopt -s globstar 2> /dev/null
+
+##
+# Your previous /Users/roy/.bash_profile file was backed up as /Users/roy/.bash_profile.macports-saved_2017-07-27_at_02:25:32
+##
+
+# MacPorts Installer addition on 2017-07-27_at_02:25:32: adding an appropriate PATH variable for use with MacPorts.
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
