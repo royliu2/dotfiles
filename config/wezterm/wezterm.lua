@@ -11,7 +11,7 @@ local theme = b.get_default_theme()
 local assets = wezterm.config_dir .. "/assets"
 
 local config = {
-  macos_window_background_blur = 30,
+  macos_window_background_blur = 20,
   enable_tab_bar = false,
   window_decorations = "RESIZE",
   window_close_confirmation = "NeverPrompt",
@@ -23,17 +23,18 @@ local config = {
     bottom = 0,
   },
 
-  -- font config
+  -- font configLight
   font = wezterm.font(custom_config.font, { weight = "Regular" }),
   font_rules = {
     {
       italic = true,
-      font = wezterm.font(custom_config.italic_font, { weight = "Medium" }),
+      font = wezterm.font(custom_config.italic_font, { weight = "Regular" }),
     },
   },
   harfbuzz_features = { "calt", "dlig", "clig=1", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" },
   font_size = 12,
   line_height = 1.1,
+  cell_width = 0.9,
   adjust_window_size_when_changing_font_size = false,
 
   -- keys config
@@ -42,7 +43,7 @@ local config = {
 }
 
 if h.is_dark then
-  config.color_scheme = theme
+  config.color_scheme = "Moonfly (Gogh)"
   --   config.set_environment_variables = {
   --     THEME_FLAVOUR = "mocha",
   --   }
@@ -56,7 +57,7 @@ if h.is_dark then
     table.insert(config.background, 1, b.get_random_wallpaper(custom_config.wallpaper_dir .. "/*.{png,jpg,jpeg}"))
   end
 else
-  config.color_scheme = "Framer"
+  config.color_scheme = "Moonfly (Gogh)"
   config.window_background_opacity = 1
   --  config.set_environment_variables = {
   --    THEME_FLAVOUR = "latte",

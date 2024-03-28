@@ -1,8 +1,8 @@
 local M = {}
 
 M.colors = {
-  bg = "#202328",
-  fg = "#bbc2cf",
+  bg = "#080808",
+  fg = "#bdbdbd",
   aqua = "#3affdb",
   beige = "#f5c06f",
   blue = "#51afef",

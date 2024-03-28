@@ -430,6 +430,14 @@ return {
     priority = 1000,
   },
 
+  -- Moonfly theme
+  {
+    "bluz71/vim-moonfly-colors",
+    priority = 1000,
+    lazy = false,
+    name = "moonfly",
+  },
+
   -- Prettier notifications
   {
     "rcarriga/nvim-notify",

@@ -275,7 +275,7 @@ else
 end
 
 -- vim.command.colorscheme "catppuccin"
-vim.cmd("colorscheme onedark_dark")
+vim.cmd("colorscheme moonfly")
 
 -- set up custom symbols for LSP errors
 local signs = { Error = icons.bug, Warning = icons.warning, Warn = icons.warning, Hint = icons.hint, Info = icons.hint }
@@ -291,6 +291,12 @@ cmd([[highlight Comment cterm=italic term=italic gui=italic]])
 cmd([[highlight htmlArg cterm=italic term=italic gui=italic]])
 cmd([[highlight xmlAttrib cterm=italic term=italic gui=italic]])
 cmd([[highlight Normal ctermbg=none]])
+
+-- transparent background
+cmd([[highlight Normal guibg=NONE ctermbg=NONE]])
+cmd([[highlight NonText guibg=NONE ctermbg=NONE]])
+cmd([[highlight LineNr guibg=NONE ctermbg=NONE]])
+cmd([[highlight SignColumn guibg=NONE ctermbg=NONE]])
 
 vim.cmd([[
   command! Lint lua Lint()
