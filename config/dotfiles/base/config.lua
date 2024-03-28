@@ -15,7 +15,7 @@ end
 -- values.
 local default_config = {
   -- these can be any
-  font = "Monaspace Neon",
+  font = "Fira Code",
   italic_font = "Monaspace Radon",
   icons = theme.icons,
   colors = theme.colors,

@@ -7,7 +7,7 @@ local b = require("utils.background")
 local wezterm = require("wezterm")
 local custom_config = require("base.config")
 
-local theme = custom_config.theme or b.get_default_theme()
+local theme = b.get_default_theme()
 local assets = wezterm.config_dir .. "/assets"
 
 local config = {
@@ -32,7 +32,7 @@ local config = {
     },
   },
   harfbuzz_features = { "calt", "dlig", "clig=1", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" },
-  font_size = 20,
+  font_size = 12,
   line_height = 1.1,
   adjust_window_size_when_changing_font_size = false,
 
@@ -43,9 +43,9 @@ local config = {
 
 if h.is_dark then
   config.color_scheme = theme
-  config.set_environment_variables = {
-    THEME_FLAVOUR = "mocha",
-  }
+  --   config.set_environment_variables = {
+  --     THEME_FLAVOUR = "mocha",
+  --   }
   config.background = {
     -- custom_config.wallpaper_dir and b.get_random_wallpaper(custom_config.wallpaper_dir .. "/*.{png,jpg,jpeg}") or {},
     -- b.get_random_animation(assets .. "/*.gif"),
@@ -56,11 +56,11 @@ if h.is_dark then
     table.insert(config.background, 1, b.get_random_wallpaper(custom_config.wallpaper_dir .. "/*.{png,jpg,jpeg}"))
   end
 else
-  config.color_scheme = "Catppuccin Latte"
+  config.color_scheme = "Framer"
   config.window_background_opacity = 1
-  config.set_environment_variables = {
-    THEME_FLAVOUR = "latte",
-  }
+  --  config.set_environment_variables = {
+  --    THEME_FLAVOUR = "latte",
+  --   }
   config.background = {
     b.get_background(),
   }

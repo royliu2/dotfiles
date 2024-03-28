@@ -69,7 +69,7 @@ setup_symlinks() {
     for file in $(get_linkables) ; do
         target="$HOME/.$(basename "$file" '.symlink')"
         if [ -e "$target" ]; then
-            info "~${target#$HOME} already exists... Skipping."
+            info "~${target#"$HOME"} already exists... Skipping."
         else
             info "Creating symlink for $file"
             ln -s "$file" "$target"
@@ -87,7 +87,7 @@ setup_symlinks() {
     for config in $config_files; do
         target="$HOME/.config/$(basename "$config")"
         if [ -e "$target" ]; then
-            info "~${target#$HOME} already exists... Skipping."
+            info "~${target#"$HOME"} already exists... Skipping."
         else
             info "Creating symlink for $config"
             ln -s "$config" "$target"
@@ -218,7 +218,7 @@ setup_macos() {
         defaults write NSGlobalDomain KeyRepeat -int 1
 
         echo "Set a shorter Delay until key repeat"
-        defaults write NSGlobalDomain InitialKeyRepeat -int 15
+        defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
         echo "Enable tap to click (Trackpad)"
         defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
