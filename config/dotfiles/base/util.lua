@@ -4,7 +4,7 @@ function M.get_current_theme()
   local file = io.open(os.getenv("HOME") .. "/.theme", "r")
 
   if not file then
-    return "catppuccin"
+    return "Framer"
   end
 
   local content = file:read("*a")

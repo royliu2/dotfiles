@@ -15,11 +15,11 @@ end
 -- values.
 local default_config = {
   -- these can be any
-  font = "Monaspace Neon",
+  font = "Operator Mono Lig",
   italic_font = "Monaspace Radon",
   icons = theme.icons,
   colors = theme.colors,
-  -- wallpaper_dir = home .. "/Documents/wallpaper",
+  -- wallpaper_dir = home .. "/Documents/wallpapers",
 }
 
 return util.table_extend(true, default_config, config)

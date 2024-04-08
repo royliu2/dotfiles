@@ -241,6 +241,9 @@ nmap("<leader>6", "<Plug>HiInterestingWord6")
 -- open current buffer in a new tab
 nmap("gTT", ":tab sb<cr>")
 
+vim.wo.number = true
+vim.wo.relativenumber = true
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -264,15 +267,15 @@ cmd([[syntax on]])
 cmd([[filetype plugin indent on]])
 
 if require("base.util").is_dark_mode() then
-  vim.g.catppuccin_flavour = "mocha"
+  -- vim.g.catppuccin_flavour = "mocha"
   vim.o.background = "dark"
 else
-  vim.g.catppuccin_flavour = "latte"
+  -- vim.g.catppuccin_flavour = "latte"
   vim.o.background = "light"
 end
 
 -- vim.command.colorscheme "catppuccin"
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme moonfly")
 
 -- set up custom symbols for LSP errors
 local signs = { Error = icons.bug, Warning = icons.warning, Warn = icons.warning, Hint = icons.hint, Info = icons.hint }
@@ -288,6 +291,12 @@ cmd([[highlight Comment cterm=italic term=italic gui=italic]])
 cmd([[highlight htmlArg cterm=italic term=italic gui=italic]])
 cmd([[highlight xmlAttrib cterm=italic term=italic gui=italic]])
 cmd([[highlight Normal ctermbg=none]])
+
+-- transparent background
+cmd([[highlight Normal guibg=NONE ctermbg=NONE]])
+cmd([[highlight NonText guibg=NONE ctermbg=NONE]])
+cmd([[highlight LineNr guibg=NONE ctermbg=NONE]])
+cmd([[highlight SignColumn guibg=NONE ctermbg=NONE]])
 
 vim.cmd([[
   command! Lint lua Lint()
