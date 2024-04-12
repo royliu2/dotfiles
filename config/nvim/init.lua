@@ -167,10 +167,13 @@ nmap("<leader><space><space>", [[:%s/\n\{2,}/\r\r/g<cr>]])
 nmap("<leader>l", ":set list!<cr>")
 inoremap("<C-j>", [[v:lua.completion_nvim.smart_pumvisible('<C-n>', '<C-j>')]], { expr = true })
 inoremap("<C-k>", [[v:lua.completion_nvim.smart_pumvisible('<C-p>', '<C-k>')]], { expr = true })
-vmap("<", "<gv")
-vmap(">", ">gv")
+vmap("<leader>[", "<gv")
+vmap("<leader>]", ">gv")
 nmap("<leader>.", "<c-^>")
 vmap(".", ":normal .<cr>")
+
+nmap('<leader>[', '<<')
+nmap('<leader>]', '>>')
 
 nmap("<C-h>", "<Plug>WinMoveLeft")
 nmap("<C-j>", "<Plug>WinMoveDown")
@@ -329,6 +332,7 @@ end
 
 
 -- buffer navigation
-nnoremap("<leader>[", "<Cmd>BufferPrevious<CR>")
-nnoremap("<leader>]", "<Cmd>BufferNext<CR>")
+nnoremap("<leader>p", "<Cmd>BufferPrevious<CR>")
+nnoremap("<leader>n", "<Cmd>BufferNext<CR>")
 nnoremap("<leader>fu", "<Cmd>BufferPick<CR>")
+
