@@ -326,3 +326,9 @@ function _G.Lint()
 
   vim.o.errorformat = current_efm
 end
+
+
+-- buffer navigation
+nnoremap("<leader>[", "<Cmd>BufferPrevious<CR>")
+nnoremap("<leader>]", "<Cmd>BufferNext<CR>")
+nnoremap("<leader>fu", "<Cmd>BufferPick<CR>")
