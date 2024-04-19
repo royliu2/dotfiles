@@ -121,7 +121,7 @@ function M.setup()
             vim.api.nvim_create_autocmd("BufWritePre", {
               pattern = "*",
               callback = function()
-                 vim.lsp.buf.format({ asymc = true })
+                 vim.lsp.buf.format({ asymc = true, timeout_ms = 5000 })
               end,
               group = au_lsp,
             })
